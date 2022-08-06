@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Executes the task-manager program.
+# Author: Mathias Roesler
+
+python3 ~/.local/bin/task-manager.py $@
