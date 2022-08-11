@@ -23,7 +23,7 @@ def exec_edit(task_file):
     """
     task_dict = read_tasks(task_file)
     task_id = ''
-    edited = True
+    edited = [0, 0, 0] # Bit flag
 
     # Print header.
     print("Available tasks\n")
@@ -54,14 +54,14 @@ def exec_edit(task_file):
 
         if task_name == '':
             task_name = task_dict[task_id].get_name()
-            edited = False
+            edited[0] = 1
 
         e_date = input("New deadline (DD-MM-YY): ")
 
         if e_date == '':
             e_date = task_dict[task_id].get_e_date()
             e_date = e_date.strftime("%d-%m-%y")
-            edited = False
+            edited[1] = 1
 
         date_error_handle(e_date)
 
@@ -70,11 +70,11 @@ def exec_edit(task_file):
 
         if status_id == '':
             status_id = str(task_dict[task_id].get_status_id())
-            edited = False
+            edited[2] = 1
 
         status_error_handle(status_id)
 
-        if edited:
+        if sum(edited) != 0:
             s_date = task_dict[task_id].get_s_date()
             s_date = s_date.strftime("%d-%m-%y")
 
@@ -84,7 +84,6 @@ def exec_edit(task_file):
             save_tasks(task_dict, task_file)
 
             print("\n Task edited successfully.")
-            exec_read(task_file)
 
         else:
             print("\n Task unchanged.")
