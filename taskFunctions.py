@@ -195,7 +195,6 @@ def write_task(task_file):
             today = datetime.now()
             e_date = today.strftime("%d-%m-%y")
 
-        breakpoint()
         date_error_handle(e_date)
 
         status_id = input("Urgency status: ")
