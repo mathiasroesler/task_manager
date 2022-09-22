@@ -174,7 +174,9 @@ def exec_write(task_file):
     print("Instructions:\n")
     print(" Task name can be anything, type q to quit.")
     print(" Deadline date must be in the format DD-MM-YY.")
-    print(" Urgency status: 1: critical, 2:urgent, 3:important, 4:normal.\n")
+    print(" If no deadline is specified, the current date is assumed.") 
+    print(" Urgency status: 1: critical, 2:urgent, 3:important, 4:normal.")
+    print(" If no status is specified, the task is considered normal urgency.\n")
 
     write_task(task_file)
 
