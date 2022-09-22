@@ -190,9 +190,20 @@ def write_task(task_file):
 
         e_date = input("Deadline: ")
 
+        if e_date == '':
+            # If no end date assume it is today.
+            today = datetime.now()
+            e_date = today.strftime("%d-%m-%y")
+
+        breakpoint()
         date_error_handle(e_date)
 
         status_id = input("Urgency status: ")
+
+        if status_id == '':
+            # If no urgency status assume lowest.
+            status_id = '4'
+
         status_error_handle(status_id)
 
         s_date = datetime.now()
